@@ -1,5 +1,5 @@
-class ProvisionrWorkspaceRegular < Formula
-  desc "Provisionr Identity Platform Workspace CLI (regular channel)"
+class ProvisionrWorkspace < Formula
+  desc "Provisionr Identity Platform Workspace CLI"
   homepage "https://provisionr.io"
   url "https://github.com/provisionr-io/homebrew-cli/releases/download/26.04.0/provisionr-workspace"
   sha256 "replace_on_first_release"
@@ -8,9 +8,7 @@ class ProvisionrWorkspaceRegular < Formula
 
   depends_on "php" unless File.exist?("/opt/homebrew/bin/herd") || system("which -s herd")
 
-  conflicts_with "provisionr-workspace-rapid", because: "both install the provisionr-workspace binary"
-  conflicts_with "provisionr-workspace-rc", because: "both install the provisionr-workspace binary"
-  conflicts_with "provisionr-workspace-stable", because: "both install the provisionr-workspace binary"
+  conflicts_with "provisionr-workspace-nightly", because: "both install the provisionr-workspace binary"
 
   def install
     php_version = Utils.safe_popen_read("php", "-r", "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;").strip
