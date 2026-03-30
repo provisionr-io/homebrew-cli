@@ -6,7 +6,7 @@ class ProvisionrWorkspaceRegular < Formula
   version "26.04.0"
   license "Apache-2.0"
 
-  depends_on "php"
+  depends_on "php" unless File.exist?("/opt/homebrew/bin/herd") || system("which -s herd")
 
   conflicts_with "provisionr-workspace-rapid", because: "both install the provisionr-workspace binary"
   conflicts_with "provisionr-workspace-rc", because: "both install the provisionr-workspace binary"
