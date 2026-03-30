@@ -1,4 +1,4 @@
-class ProvisionrWorkspaceAtStable < Formula
+class ProvisionrWorkspaceATStable < Formula
   desc "Provisionr Identity Platform Workspace CLI (stable channel)"
   homepage "https://provisionr.io"
   url "https://github.com/provisionr-io/homebrew-cli/releases/download/26.04.0/provisionr-workspace"

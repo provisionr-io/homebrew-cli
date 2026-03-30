@@ -1,4 +1,4 @@
-class ProvisionrWorkspaceAtRapid < Formula
+class ProvisionrWorkspaceATRapid < Formula
   desc "Provisionr Identity Platform Workspace CLI (rapid channel)"
   homepage "https://provisionr.io"
   url "https://github.com/provisionr-io/homebrew-cli/releases/download/26.04.0/provisionr-workspace"
