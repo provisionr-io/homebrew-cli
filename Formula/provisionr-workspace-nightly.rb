@@ -30,6 +30,7 @@ class ProvisionrWorkspaceNightly < Formula
 
   def install
     bin.install stable.url.split("/").last => "provisionr-workspace-nightly"
+    bin.install_symlink "provisionr-workspace-nightly" => "provisionr-nightly"
     bin.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
   end
 
