@@ -3,7 +3,7 @@ class ProvisionrWorkspaceNightly < Formula
   homepage "https://provisionr.io"
   url "https://github.com/provisionr-io/homebrew-cli/releases/download/26.04.0-rc1/provisionr-workspace"
   sha256 "replace_on_first_release"
-  version "26.04.0-rc1"
+  version "26.04.0-rc12"
   license "Apache-2.0"
 
   depends_on "php" unless File.exist?("/opt/homebrew/bin/herd") || system("which -s herd")
