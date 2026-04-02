@@ -1,7 +1,7 @@
 class ProvisionrWorkspaceNightly < Formula
   desc "Provisionr Identity Platform Workspace CLI (nightly)"
   homepage "https://provisionr.io"
-  version "26.04.0-rc13"
+  version "26.04.0-rc14"
   license "Apache-2.0"
 
   on_macos do
