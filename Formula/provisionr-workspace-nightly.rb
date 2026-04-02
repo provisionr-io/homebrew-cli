@@ -1,25 +1,39 @@
 class ProvisionrWorkspaceNightly < Formula
   desc "Provisionr Identity Platform Workspace CLI (nightly)"
   homepage "https://provisionr.io"
-  url "https://github.com/provisionr-io/homebrew-cli/releases/download/26.04.0-rc1/provisionr-workspace"
-  sha256 "replace_on_first_release"
   version "26.04.0-rc12"
   license "Apache-2.0"
 
-  depends_on "php" unless File.exist?("/opt/homebrew/bin/herd") || system("which -s herd")
+  on_macos do
+    on_arm do
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/RELEASE_TAG/mac-arm"
+      sha256 "SHA256_MAC_ARM"
+    end
 
-  conflicts_with "provisionr-workspace", because: "both install the provisionr-workspace binary"
+    on_intel do
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/RELEASE_TAG/mac-x64"
+      sha256 "SHA256_MAC_X64"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/RELEASE_TAG/linux-arm"
+      sha256 "SHA256_LINUX_ARM"
+    end
+
+    on_intel do
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/RELEASE_TAG/linux-x64"
+      sha256 "SHA256_LINUX_X64"
+    end
+  end
 
   def install
-    php_version = Utils.safe_popen_read("php", "-r", "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;").strip
-    if Version.new(php_version) < Version.new("8.3")
-      odie "provisionr-workspace requires PHP 8.3 or higher (found #{php_version})"
-    end
-    bin.install "provisionr-workspace"
-    bin.install_symlink "provisionr-workspace" => "prv"
+    bin.install stable.url.split("/").last => "provisionr-workspace-nightly"
+    bin.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/provisionr-workspace --version")
+    assert_match version.to_s, shell_output("#{bin}/provisionr-workspace-nightly --version")
   end
 end
