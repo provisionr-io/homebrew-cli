@@ -37,8 +37,8 @@ class ProvisionrWorkspace < Formula
 
     generate_completions_from_executable(bin/"provisionr-workspace", "completion")
 
-    zsh_completion.install_symlink "_provisionr-workspace" => "_provisionr"
-    zsh_completion.install_symlink "_provisionr-workspace" => "_prv"
+    (zsh_completion/"_provisionr").write "#compdef provisionr\n(( $+functions[_sf_provisionr-workspace] )) || source #{zsh_completion}/_provisionr-workspace\ncompdef _sf_provisionr-workspace provisionr\n"
+    (zsh_completion/"_prv").write "#compdef prv\n(( $+functions[_sf_provisionr-workspace] )) || source #{zsh_completion}/_provisionr-workspace\ncompdef _sf_provisionr-workspace prv\n"
     bash_completion.install_symlink "provisionr-workspace" => "provisionr"
     bash_completion.install_symlink "provisionr-workspace" => "prv"
     fish_completion.install_symlink "provisionr-workspace.fish" => "provisionr.fish"
@@ -53,6 +53,9 @@ class ProvisionrWorkspace < Formula
         FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
         autoload -Uz compinit
         compinit
+
+      If you use oh-my-zsh, add the FPATH line before "source $ZSH/oh-my-zsh.sh"
+      (oh-my-zsh calls compinit for you, so only the FPATH line is needed).
 
       For bash, add the following to your ~/.bash_profile:
         [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"

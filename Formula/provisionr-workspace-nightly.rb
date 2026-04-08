@@ -37,8 +37,8 @@ class ProvisionrWorkspaceNightly < Formula
 
     generate_completions_from_executable(bin/"provisionr-workspace-nightly", "completion")
 
-    zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_provisionr-nightly"
-    zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_prv-nightly"
+    (zsh_completion/"_provisionr-nightly").write "#compdef provisionr-nightly\n(( $+functions[_sf_provisionr-workspace-nightly] )) || source #{zsh_completion}/_provisionr-workspace-nightly\ncompdef _sf_provisionr-workspace-nightly provisionr-nightly\n"
+    (zsh_completion/"_prv-nightly").write "#compdef prv-nightly\n(( $+functions[_sf_provisionr-workspace-nightly] )) || source #{zsh_completion}/_provisionr-workspace-nightly\ncompdef _sf_provisionr-workspace-nightly prv-nightly\n"
     bash_completion.install_symlink "provisionr-workspace-nightly" => "provisionr-nightly"
     bash_completion.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
     fish_completion.install_symlink "provisionr-workspace-nightly.fish" => "provisionr-nightly.fish"
@@ -53,6 +53,9 @@ class ProvisionrWorkspaceNightly < Formula
         FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
         autoload -Uz compinit
         compinit
+
+      If you use oh-my-zsh, add the FPATH line before "source $ZSH/oh-my-zsh.sh"
+      (oh-my-zsh calls compinit for you, so only the FPATH line is needed).
 
       For bash, add the following to your ~/.bash_profile:
         [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
