@@ -45,6 +45,20 @@ class ProvisionrWorkspaceNightly < Formula
     fish_completion.install_symlink "provisionr-workspace-nightly.fish" => "prv-nightly.fish"
   end
 
+  def caveats
+    <<~EOS
+      To enable shell completions, make sure your shell is configured to load Homebrew completions.
+
+      For zsh, add the following to your ~/.zshrc (before compinit):
+        FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+        autoload -Uz compinit
+        compinit
+
+      For bash, add the following to your ~/.bash_profile:
+        [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/provisionr-workspace-nightly --version")
   end
