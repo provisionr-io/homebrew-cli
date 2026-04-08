@@ -35,7 +35,7 @@ class ProvisionrWorkspace < Formula
     bin.install_symlink "provisionr-workspace" => "provisionr"
     bin.install_symlink "provisionr-workspace" => "prv"
 
-    generate_completions_from_executable(bin/"provisionr-workspace", "completion")
+    generate_completions_from_executable(bin/"provisionr-workspace", "completion", shell_parameter_format: :arg)
 
     zsh_completion.install_symlink "_provisionr-workspace" => "_provisionr"
     zsh_completion.install_symlink "_provisionr-workspace" => "_prv"
