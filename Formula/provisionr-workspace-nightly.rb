@@ -32,6 +32,15 @@ class ProvisionrWorkspaceNightly < Formula
     bin.install stable.url.split("/").last => "provisionr-workspace-nightly"
     bin.install_symlink "provisionr-workspace-nightly" => "provisionr-nightly"
     bin.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
+
+    generate_completions_from_executable(bin/"provisionr-workspace-nightly", "completion")
+
+    zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_provisionr-nightly"
+    zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_prv-nightly"
+    bash_completion.install_symlink "provisionr-workspace-nightly" => "provisionr-nightly"
+    bash_completion.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
+    fish_completion.install_symlink "provisionr-workspace-nightly.fish" => "provisionr-nightly.fish"
+    fish_completion.install_symlink "provisionr-workspace-nightly.fish" => "prv-nightly.fish"
   end
 
   test do

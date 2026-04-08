@@ -32,6 +32,15 @@ class ProvisionrWorkspace < Formula
     bin.install stable.url.split("/").last => "provisionr-workspace"
     bin.install_symlink "provisionr-workspace" => "provisionr"
     bin.install_symlink "provisionr-workspace" => "prv"
+
+    generate_completions_from_executable(bin/"provisionr-workspace", "completion")
+
+    zsh_completion.install_symlink "_provisionr-workspace" => "_provisionr"
+    zsh_completion.install_symlink "_provisionr-workspace" => "_prv"
+    bash_completion.install_symlink "provisionr-workspace" => "provisionr"
+    bash_completion.install_symlink "provisionr-workspace" => "prv"
+    fish_completion.install_symlink "provisionr-workspace.fish" => "provisionr.fish"
+    fish_completion.install_symlink "provisionr-workspace.fish" => "prv.fish"
   end
 
   test do
