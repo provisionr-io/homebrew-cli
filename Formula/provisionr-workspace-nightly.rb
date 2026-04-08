@@ -35,7 +35,7 @@ class ProvisionrWorkspaceNightly < Formula
     bin.install_symlink "provisionr-workspace-nightly" => "provisionr-nightly"
     bin.install_symlink "provisionr-workspace-nightly" => "prv-nightly"
 
-    generate_completions_from_executable(bin/"provisionr-workspace-nightly", "completion", shell_parameter_format: :arg)
+    generate_completions_from_executable(bin/"provisionr-workspace-nightly", "completion")
 
     zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_provisionr-nightly"
     zsh_completion.install_symlink "_provisionr-workspace-nightly" => "_prv-nightly"
