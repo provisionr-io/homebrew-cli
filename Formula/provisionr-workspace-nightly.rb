@@ -1,30 +1,30 @@
 class ProvisionrWorkspaceNightly < Formula
   desc "Provisionr Identity Platform Workspace CLI (nightly)"
   homepage "https://provisionr.io"
-  version "26.09.1-rc1"
+  version "26.09.1"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1-rc1/mac-arm"
-      sha256 "604e0cedb8b478db9ae45d2a022b5bb2629bfead7cad82a9da394515d29274b3"
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1/mac-arm"
+      sha256 "df2b25f732d53c65f9c29fc9ccf6ab6b0b705e069a3a2bc870192845d95632e4"
     end
 
     on_intel do
-      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1-rc1/mac-x64"
-      sha256 "836e7d70959189c6ab5fa0a83bdab2b0774d81052b9099d26ba03deb7aa862d2"
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1/mac-x64"
+      sha256 "9d0269a46d6bc4c79dacf78d8a430ffca88240e3e2fd5bede71136b02830d932"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1-rc1/linux-arm"
-      sha256 "ec950d8c1e080a43b94afb0fd97997d78397b70a7b3a1317e4d9a9a55c85ef06"
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1/linux-arm"
+      sha256 "69e0e284e1ab544e5a71a0aa746384179c9b981ba996849da35815f1356ef2ae"
     end
 
     on_intel do
-      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1-rc1/linux-x64"
-      sha256 "a76b8e842e831a9670268704add1d5f5d1bc7d8b96abff55c8d159838e9e0e0d"
+      url "https://github.com/provisionr-io/homebrew-cli/releases/download/provisionr-workspace-26.09.1/linux-x64"
+      sha256 "8ef16987a4ef78d57a1349826c964fa0ba452ac6e2729d8c8eb37c72e760e073"
     end
   end
 
